@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RoingCustomersDb.BL
 {
     public interface ICustomerRepository
     {
-        IEnumerable<Customer> GetCustomers();
-        Customer GetCustomerById(int id);
-        void AddCustomer(Customer customer);
-        void UpdateCustromer(Customer customer);
-        void DeleteCustomer(Customer customer);
+        Task<IEnumerable<Customer>> GetCustomersAsync();
+        Task<Customer> GetCustomerByIdAsync(int id);
+        Task AddCustomerAsync(Customer customer);
+        Task UpdateCustromerAsync(Customer customer);
+        Task DeleteCustomerAsync(Customer customer);
     }
 }
