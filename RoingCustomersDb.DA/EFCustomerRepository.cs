@@ -63,5 +63,8 @@ namespace RoingCustomersDb.DA
                 await context.SaveChangesAsync();
             }
         }
+
+        public static EFCustomerRepository Create() =>
+            new EFCustomerRepository(new ContextFactory());
     }
 }

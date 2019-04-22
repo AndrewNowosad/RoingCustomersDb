@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using RoingCustomersDb.DA;
+using RoingCustomersDb.UI.ViewModels;
+using System.Windows;
 
 namespace RoingCustomersDb.UI
 {
@@ -7,7 +9,10 @@ namespace RoingCustomersDb.UI
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            new MainWindow().Show();
+            var repo = EFCustomerRepository.Create();
+            var vm = new MainVM(repo);
+            var view = new MainWindow { DataContext = vm };
+            view.Show();
         }
     }
 }

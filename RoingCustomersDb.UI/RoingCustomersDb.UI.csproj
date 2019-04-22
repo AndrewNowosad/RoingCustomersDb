@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\CustomerVM.cs" />
+    <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\VM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,6 +100,10 @@
     <ProjectReference Include="..\RoingCustomersDb.BL\RoingCustomersDb.BL.csproj">
       <Project>{9910d9b7-d452-4561-a0f8-b2365ca80fb1}</Project>
       <Name>RoingCustomersDb.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RoingCustomersDb.DA\RoingCustomersDb.DA.csproj">
+      <Project>{FAD27CD4-4B54-4BF5-8B87-EC81C5E8BB6B}</Project>
+      <Name>RoingCustomersDb.DA</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
