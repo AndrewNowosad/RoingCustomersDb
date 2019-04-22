@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoingCustomersDb.UI", "RoingCustomersDb.UI\RoingCustomersDb.UI.csproj", "{ACE15769-DDBC-4482-8140-2C480A438379}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoingCustomersDb.BL", "RoingCustomersDb.BL\RoingCustomersDb.BL.csproj", "{9910D9B7-D452-4561-A0F8-B2365CA80FB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoingCustomersDb.DA", "RoingCustomersDb.DA\RoingCustomersDb.DA.csproj", "{FAD27CD4-4B54-4BF5-8B87-EC81C5E8BB6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{ACE15769-DDBC-4482-8140-2C480A438379}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACE15769-DDBC-4482-8140-2C480A438379}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACE15769-DDBC-4482-8140-2C480A438379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9910D9B7-D452-4561-A0F8-B2365CA80FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9910D9B7-D452-4561-A0F8-B2365CA80FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9910D9B7-D452-4561-A0F8-B2365CA80FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9910D9B7-D452-4561-A0F8-B2365CA80FB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD27CD4-4B54-4BF5-8B87-EC81C5E8BB6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD27CD4-4B54-4BF5-8B87-EC81C5E8BB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD27CD4-4B54-4BF5-8B87-EC81C5E8BB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD27CD4-4B54-4BF5-8B87-EC81C5E8BB6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

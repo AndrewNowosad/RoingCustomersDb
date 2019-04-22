@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoingCustomersDb.BL\RoingCustomersDb.BL.csproj">
+      <Project>{9910d9b7-d452-4561-a0f8-b2365ca80fb1}</Project>
+      <Name>RoingCustomersDb.BL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
