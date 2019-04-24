@@ -19,7 +19,7 @@
                     <GridViewColumn Header="ИД" DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}"/>
                     <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthdate}"/>
+                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthdate, StringFormat=d}"/>
                 </GridView>
             </ListView.View>
         </ListView>
