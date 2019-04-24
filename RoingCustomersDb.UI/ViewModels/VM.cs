@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace RoingCustomersDb.UI.ViewModels
 {
-    abstract class VM : INotifyPropertyChanged
+    public abstract class VM : INotifyPropertyChanged
     {
         protected bool Set<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {

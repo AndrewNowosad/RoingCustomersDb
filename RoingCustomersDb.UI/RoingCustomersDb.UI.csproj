@@ -70,6 +70,7 @@
     <Compile Include="CustomerWindow.xaml.cs">
       <DependentUpon>CustomerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ICustomerViewer.cs" />
     <Compile Include="SimpleCommand.cs" />
     <Compile Include="ViewModels\CustomerVM.cs" />
     <Compile Include="ViewModels\MainVM.cs" />

@@ -3,7 +3,7 @@ using System;
 
 namespace RoingCustomersDb.UI.ViewModels
 {
-    class CustomerVM : VM
+    public class CustomerVM : VM
     {
         private readonly Customer customer;
 

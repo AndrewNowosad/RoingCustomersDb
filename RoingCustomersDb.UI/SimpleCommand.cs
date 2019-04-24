@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace RoingCustomersDb.UI
 {
-    class SimpleCommand : ICommand
+    public class SimpleCommand : ICommand
     {
         protected readonly Func<bool> _canExecute;
         protected readonly Action _execute;

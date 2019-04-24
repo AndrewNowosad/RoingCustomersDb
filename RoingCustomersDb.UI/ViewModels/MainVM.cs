@@ -2,11 +2,10 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Input;
 
 namespace RoingCustomersDb.UI.ViewModels
 {
-    class MainVM : VM
+    public class MainVM : VM
     {
         private readonly ICustomerRepository customerRepository;
 
@@ -25,6 +24,7 @@ namespace RoingCustomersDb.UI.ViewModels
             {
                 if (Set(ref selectedCustomer, value))
                 {
+                    UpdateCustomerCommand.RaiseCanExecuteChanged();
                     RemoveCustomerCommand.RaiseCanExecuteChanged();
                 }
             }
@@ -49,7 +49,7 @@ namespace RoingCustomersDb.UI.ViewModels
             this.customerRepository = customerRepository;
 
             AddCustomerCommand = new SimpleCommand(AddCustomerAsync);
-            UpdateCustomerCommand = new SimpleCommand(UpdateCustomerAsync);
+            UpdateCustomerCommand = new SimpleCommand(UpdateCustomerAsync, () => SelectedCustomer != null);
             RemoveCustomerCommand = new SimpleCommand(RemoveCustomerAsync, () => SelectedCustomer != null);
 
             // TODO: вынести инициализацию отдельным шагом
