@@ -77,24 +77,28 @@ namespace RoingCustomersDb.UI.ViewModels
             {
                 IsLoading = true;
                 await customerRepository.AddCustomerAsync(newCustomer.Customer);
-                Customers.Add(newCustomer);
-                SelectedCustomer = newCustomer;
                 IsLoading = false;
             }
+            LoadCustomersAsync();
         }
 
         private async void UpdateCustomerAsync()
         {
-            IsLoading = true;
-
-            IsLoading = false;
+            if (customerViewer.ShowCustomer(SelectedCustomer))
+            {
+                IsLoading = true;
+                await customerRepository.UpdateCustromerAsync(SelectedCustomer.Customer);
+                IsLoading = false;
+            }
+            LoadCustomersAsync();
         }
 
         private async void RemoveCustomerAsync()
         {
             IsLoading = true;
-
+            await customerRepository.DeleteCustomerAsync(SelectedCustomer.Customer);
             IsLoading = false;
+            LoadCustomersAsync();
         }
     }
 }
