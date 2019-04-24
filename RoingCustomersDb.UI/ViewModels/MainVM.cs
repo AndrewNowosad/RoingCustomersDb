@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace RoingCustomersDb.UI.ViewModels
 {
@@ -9,22 +10,24 @@ namespace RoingCustomersDb.UI.ViewModels
     {
         private readonly ICustomerRepository customerRepository;
 
-        public MainVM(ICustomerRepository customerRepository)
-        {
-            if (customerRepository is null)
-                throw new ArgumentNullException(nameof(ICustomerRepository));
-
-            this.customerRepository = customerRepository;
-
-            // TODO: вынести инициализацию отдельным шагом
-            LoadCustomersAsync();
-        }
-
         private bool isLoading;
         public bool IsLoading
         {
             get => isLoading;
             set => Set(ref isLoading, value);
+        }
+
+        private CustomerVM selectedCustomer;
+        public CustomerVM SelectedCustomer
+        {
+            get => selectedCustomer;
+            set
+            {
+                if (Set(ref selectedCustomer, value))
+                {
+                    RemoveCustomerCommand.RaiseCanExecuteChanged();
+                }
+            }
         }
 
         private ObservableCollection<CustomerVM> customers;
@@ -34,6 +37,25 @@ namespace RoingCustomersDb.UI.ViewModels
             set => Set(ref customers, value);
         }
 
+        public SimpleCommand AddCustomerCommand { get; }
+        public SimpleCommand UpdateCustomerCommand { get; }
+        public SimpleCommand RemoveCustomerCommand { get; }
+
+        public MainVM(ICustomerRepository customerRepository)
+        {
+            if (customerRepository is null)
+                throw new ArgumentNullException(nameof(ICustomerRepository));
+
+            this.customerRepository = customerRepository;
+
+            AddCustomerCommand = new SimpleCommand(AddCustomerAsync);
+            UpdateCustomerCommand = new SimpleCommand(UpdateCustomerAsync);
+            RemoveCustomerCommand = new SimpleCommand(RemoveCustomerAsync, () => SelectedCustomer != null);
+
+            // TODO: вынести инициализацию отдельным шагом
+            LoadCustomersAsync();
+        }
+
         private async void LoadCustomersAsync()
         {
             IsLoading = true;
@@ -41,6 +63,27 @@ namespace RoingCustomersDb.UI.ViewModels
             var customers = new ObservableCollection<CustomerVM>(
                 customersFromRepo.Select(c => new CustomerVM(c)));
             Customers = customers;
+            IsLoading = false;
+        }
+
+        private async void AddCustomerAsync()
+        {
+            IsLoading = true;
+
+            IsLoading = false;
+        }
+
+        private async void UpdateCustomerAsync()
+        {
+            IsLoading = true;
+
+            IsLoading = false;
+        }
+
+        private async void RemoveCustomerAsync()
+        {
+            IsLoading = true;
+
             IsLoading = false;
         }
     }
