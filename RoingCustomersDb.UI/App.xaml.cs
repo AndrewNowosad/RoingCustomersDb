@@ -9,9 +9,10 @@ namespace RoingCustomersDb.UI
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            var view = new MainWindow();
             var repo = EFCustomerRepository.Create();
-            var vm = new MainVM(repo);
-            var view = new MainWindow { DataContext = vm };
+            var vm = new MainVM(repo, view);
+            view.DataContext = vm;
             view.Show();
         }
     }

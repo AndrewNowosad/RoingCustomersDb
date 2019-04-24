@@ -8,6 +8,7 @@ namespace RoingCustomersDb.UI.ViewModels
     public class MainVM : VM
     {
         private readonly ICustomerRepository customerRepository;
+        private readonly ICustomerViewer customerViewer;
 
         private bool isLoading;
         public bool IsLoading
@@ -41,12 +42,15 @@ namespace RoingCustomersDb.UI.ViewModels
         public SimpleCommand UpdateCustomerCommand { get; }
         public SimpleCommand RemoveCustomerCommand { get; }
 
-        public MainVM(ICustomerRepository customerRepository)
+        public MainVM(ICustomerRepository customerRepository, ICustomerViewer customerViewer)
         {
             if (customerRepository is null)
-                throw new ArgumentNullException(nameof(ICustomerRepository));
+                throw new ArgumentNullException(nameof(customerRepository));
+            if (customerViewer is null)
+                throw new ArgumentNullException(nameof(customerViewer));
 
             this.customerRepository = customerRepository;
+            this.customerViewer = customerViewer;
 
             AddCustomerCommand = new SimpleCommand(AddCustomerAsync);
             UpdateCustomerCommand = new SimpleCommand(UpdateCustomerAsync, () => SelectedCustomer != null);

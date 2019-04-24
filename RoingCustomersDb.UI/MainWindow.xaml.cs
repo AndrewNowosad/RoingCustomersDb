@@ -12,7 +12,8 @@ namespace RoingCustomersDb.UI
 
         public bool ShowCustomer(CustomerVM customer)
         {
-            throw new System.NotImplementedException();
+            var customerWindow = new CustomerWindow { DataContext = customer };
+            return customerWindow.ShowDialog() == true;
         }
     }
 }
