@@ -72,9 +72,15 @@ namespace RoingCustomersDb.UI.ViewModels
 
         private async void AddCustomerAsync()
         {
-            IsLoading = true;
-
-            IsLoading = false;
+            var newCustomer = new CustomerVM();
+            if (customerViewer.ShowCustomer(newCustomer))
+            {
+                IsLoading = true;
+                await customerRepository.AddCustomerAsync(newCustomer.Customer);
+                Customers.Add(newCustomer);
+                SelectedCustomer = newCustomer;
+                IsLoading = false;
+            }
         }
 
         private async void UpdateCustomerAsync()

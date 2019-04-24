@@ -5,43 +5,43 @@ namespace RoingCustomersDb.UI.ViewModels
 {
     public class CustomerVM : VM
     {
-        private readonly Customer customer;
+        public Customer Customer { get; }
 
-        public CustomerVM(Customer customer) =>
-            this.customer = customer ?? new Customer();
+        public CustomerVM(Customer customer = null) =>
+            Customer = customer ?? new Customer();
 
-        public int Id => customer.Id;
+        public int Id => Customer.Id;
 
         public string LastName
         {
-            get => customer.LastName;
+            get => Customer.LastName;
             set
             {
-                var lastName = customer.LastName;
+                var lastName = Customer.LastName;
                 if (Set(ref lastName, value))
-                    customer.LastName = lastName;
+                    Customer.LastName = lastName;
             }
         }
 
         public string FirstName
         {
-            get => customer.FirstName;
+            get => Customer.FirstName;
             set
             {
-                var firstName = customer.FirstName;
+                var firstName = Customer.FirstName;
                 if (Set(ref firstName, value))
-                    customer.FirstName = firstName;
+                    Customer.FirstName = firstName;
             }
         }
 
         public DateTime? Birthdate
         {
-            get => customer.Birthdate;
+            get => Customer.Birthdate;
             set
             {
-                var birthdate = customer.Birthdate;
+                var birthdate = Customer.Birthdate;
                 if (Set(ref birthdate, value))
-                    customer.Birthdate = birthdate;
+                    Customer.Birthdate = birthdate;
             }
         }
     }

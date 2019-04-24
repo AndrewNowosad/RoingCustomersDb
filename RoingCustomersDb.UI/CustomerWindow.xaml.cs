@@ -8,5 +8,10 @@ namespace RoingCustomersDb.UI
         {
             InitializeComponent();
         }
+
+        private void SaveButtonClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }

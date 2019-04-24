@@ -12,7 +12,7 @@ namespace RoingCustomersDb.UI
 
         public bool ShowCustomer(CustomerVM customer)
         {
-            var customerWindow = new CustomerWindow { DataContext = customer };
+            var customerWindow = new CustomerWindow { Owner = this, DataContext = customer };
             return customerWindow.ShowDialog() == true;
         }
     }
