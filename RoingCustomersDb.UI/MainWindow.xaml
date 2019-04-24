@@ -3,10 +3,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RoingCustomersDb.UI"
+        xmlns:vm="clr-namespace:RoingCustomersDb.UI.ViewModels"
+        d:DataContext="{d:DesignInstance vm:MainVM}"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Roing Customers Db" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListView ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ИД" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthdate}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <UniformGrid Grid.Row="1" Rows="1" Margin="0,5,0,0"
+                     HorizontalAlignment="Center">
+            <UniformGrid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="2.5,0"/>
+                    <Setter Property="Padding" Value="10,2"/>
+                </Style>
+            </UniformGrid.Resources>
+            
+            <Button Content="Добавить" Command="{Binding AddCustomerCommand}"/>
+            <Button Content="Редактировать" Command="{Binding UpdateCustomerCommand}"/>
+            <Button Content="Удалить" Command="{Binding RemoveCustomerCommand}"/>
+        </UniformGrid>
     </Grid>
 </Window>
